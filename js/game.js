@@ -18,6 +18,9 @@ game.draw = function() {
             game.vox.set(col, row, layer, 4);
         }
     }
+    for (var i = 0; i < game.doop.length; i++) {
+        game.doop[i].drawInto(game.vox);
+    }
 
     game.screen.clear([0, 0, 0]);
     game.vox.draw(game.screen);
@@ -31,6 +34,14 @@ game.start = function() {
         canvasId: "gameScreen"
     });
     game.vox = new game.VoxBuffer();
+    // TODO REMOVE
+    var mdl = [[[0,0,0],[0,3,0],[0,0,0]],[[0,3,0],[3,3,3],[0,3,0]]];
+    game.doop = [];
+    game.doop.push(new game.Model(mdl, 5, 5, 3));
+    game.doop.push(new game.Model(mdl, 20, 7, 2));
+    game.doop.push(new game.Model(mdl, 9, 14, 5));
+    game.doop.push(new game.Model(mdl, 2, 19, 4));
+    game.doop.push(new game.Model(mdl, 25, 25, 1));
     setInterval(game.loop, 16);
 };
 
