@@ -41,8 +41,21 @@ game.World.prototype.makeEntity = function(argObj) {
     if (argObj.type == "player") {
         return new game.Player(this.playerStartX, this.playerStartY,
             this.playerStartZ, argObj.args);
+    } else if (argObj.type == "portal") {
+        return new game.Portal(argObj.x, argObj.y, argObj.z, argObj.args);
+    } else if (argObj.type == "bean") {
+        return new game.Bean(argObj.x, argObj.y, argObj.z, argObj.args);
     }
     return null;
+};
+
+/** Reset the player position to the original position, and regenerate
+ * entities. */
+game.World.prototype.reset = function() {
+    this.playerStartX = this.args.playerStartX;
+    this.playerStartY = this.args.playerStartY;
+    this.playerStartZ = this.args.playerStartZ;
+    this.regenerateEntities();
 };
 
 game.World.prototype.update = function() {

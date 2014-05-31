@@ -2,14 +2,17 @@
 // the player!!!
 
 game.Player = function(x, y, z, args) {
+    game.player = this;
     this.physicsCounter = 2;
     this.vspeed = 0;
     this.noGravCounter = 0;
     this.arrowCounter = 3;
+    this.redCounter = 0;
     this.x = x;
     this.y = y;
     this.z = z;
     this.model = new game.Model(game.resources.models["player"], x, y, z);
+    this.redModel = new game.Model(game.resources.models["x"], x, y, z);
 };
 
 game.Player.prototype.update = function() {
@@ -26,6 +29,12 @@ game.Player.prototype.update = function() {
                 && !game.currentWorld.isSolid(this.x, this.y, this.z + 1)
                 && this.noGravCounter <= 0) {
             this.vspeed = 1;
+        } else if (this.vspeed == 0
+                && game.currentWorld.isSolid(this.x, this.y, this.z + 1)) {
+            // Record where the player last stood safely
+            game.currentWorld.playerStartX = this.x;
+            game.currentWorld.playerStartY = this.y;
+            game.currentWorld.playerStartZ = this.z;
         }
         this.noGravCounter--;
     }
@@ -62,9 +71,15 @@ game.Player.prototype.update = function() {
     }
 
     if (this.z > game.currentWorld.bottomZ) {
+            this.redCounter = 15;
             this.x = game.currentWorld.playerStartX;
             this.y = game.currentWorld.playerStartY;
             this.z = game.currentWorld.playerStartZ;
+    }
+
+
+    if (this.redCounter > 0) {
+        this.redCounter--;
     }
 
     this.model.posX = this.x;
@@ -88,7 +103,14 @@ game.Player.prototype.moveIfFree = function(newX, newY, newZ) {
 };
 
 game.Player.prototype.drawInto = function(voxBuffer, viewX, viewY, viewZ) {
-    this.model.drawInto(voxBuffer, viewX, viewY, viewZ);
+    if (this.redCounter > 0) {
+        this.redModel.posX = this.x - 1;
+        this.redModel.posY = this.y - 1;
+        this.redModel.posZ = this.z;
+        this.redModel.drawInto(voxBuffer, viewX, viewY, viewZ);
+    } else {
+        this.model.drawInto(voxBuffer, viewX, viewY, viewZ);
+    }
 };
 
 game.Player.prototype.isSolid = function(worldX, worldY, worldZ) {

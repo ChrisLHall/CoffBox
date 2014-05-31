@@ -10,6 +10,8 @@ game.input.start = function() {
     game.input.downKeyDown = false;
     game.input.actionKeyDown = false;
     game.input.helpKeyDown = false;
+    game.input.pauseKeyDown = false;
+    game.input.restartKeyDown = false;
 
     listener.register_combo({
         keys: "a",
@@ -65,5 +67,17 @@ game.input.start = function() {
         keys: "h",
         on_keydown: function() {game.input.helpKeyDown = true;},
         on_keyup: function() {game.input.helpKeyDown = false;}
+    });
+
+    listener.register_combo({
+        keys: "p",
+        on_keydown: function() {game.input.pauseKeyDown = true;},
+        on_keyup: function() {game.input.pauseKeyDown = false;}
+    });
+
+    listener.register_combo({
+        keys: "r",
+        on_keydown: function() {game.input.restartKeyDown = true;},
+        on_keyup: function() {game.input.restartKeyDown = false;}
     });
 };

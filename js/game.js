@@ -2,13 +2,13 @@ game = {};
 
 game.update = function() {
     game.vox.updateColors();
-    game.currentWorld.update();
+    game.hud.update();
+    if (!game.paused) {
+        game.currentWorld.update();
+    }
 };
-// TODO REMOVE
-counter = 0;
 
 game.draw = function() {
-    counter++;
     game.vox.clear(0);
     /* // Keeping this for history's sake of course.
     for (var row = 0; row < 32; row++) {
@@ -24,6 +24,7 @@ game.draw = function() {
 
     game.screen.clear([0, 0, 0]);
     game.vox.draw(game.screen);
+    game.hud.draw(game.screen);
     game.screen.render();
 };
 
@@ -33,18 +34,25 @@ game.start = function() {
         height: 32,
         canvasId: "gameScreen"
     });
+
+    game.paused = false;
+    game.state = {
+        // game.state.beans maps coffee bean names with whether they
+        // have been acquired yet.
+        beans: {}, 
+        // If needTutorial is true, the HUD will pause the game and show the
+        // tutorial.
+        needTutorial: true
+    };
+    game.player = null;
+
     game.input.start();
     game.resources.loadAll();
     game.vox = new game.VoxBuffer();
+    game.hud = new game.HUD();
     game.currentWorld = game.resources.worlds["main"];
-    // TODO REMOVE
-    var mdl = game.resources.models["plus"];
-    game.doop = [];
-    game.doop.push(new game.Model(mdl, 5, 5, 3));
-    game.doop.push(new game.Model(mdl, 20, 7, 2));
-    game.doop.push(new game.Model(mdl, 9, 14, 5));
-    game.doop.push(new game.Model(mdl, 2, 19, 4));
-    game.doop.push(new game.Model(mdl, 25, 25, 1));
+    game.currentWorld.regenerateEntities();
+
     setInterval(game.loop, 16);
 };
 
