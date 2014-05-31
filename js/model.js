@@ -31,19 +31,32 @@ game.Model = function(layers, posX, posY, posZ) {
     }
 };
 
-game.Model.prototype.get = function(x, y, z) {
-    return this.voxels[y][x][z];
+game.Model.prototype.get = function(localX, localY, localZ) {
+    return this.voxels[localY][localX][localZ];
 };
 
-/** Returns whether this model is in view of a 32x32x8 buffer positioned at
- * BUFPOSX, BUFPOSY, BUFPOSZ. */
-game.Model.prototype.inView = function(bufPosX, bufPosY, bufPosZ) {
-    if (this.posX + this.width <= bufPosX) return false;
-    if (this.posY + this.height <= bufPosY) return false;
-    if (this.posZ + this.depth <= bufPosZ) return false;
-    if (this.posX >= bufPosX + 32) return false;
-    if (this.posY >= bufPosY + 32) return false;
-    if (this.posZ >= bufPosZ + 8) return false;
+/** Returns the voxel at the world position WORLDX, WORLDY, WORLDZ. */
+game.Model.prototype.worldGet = function(worldX, worldY, worldZ) {
+    var localX = worldX - this.posX;
+    var localY = worldY - this.posY;
+    var localZ = worldZ - this.posZ;
+    if (localX < 0 || localX >= this.width
+            || localY < 0 || localY >= this.height
+            || localZ < 0 || localZ >= this.depth) {
+        return 0;
+    }
+    return this.get(localX, localY, localZ);
+};
+
+/** Returns whether this model is in view of a 32x32x8 view positioned at
+ * VIEWPOSX, VIEWPOSY, VIEWPOSZ. */
+game.Model.prototype.inView = function(viewPosX, viewPosY, viewPosZ) {
+    if (this.posX + this.width <= viewPosX) return false;
+    if (this.posY + this.height <= viewPosY) return false;
+    if (this.posZ + this.depth <= viewPosZ) return false;
+    if (this.posX >= viewPosX + 32) return false;
+    if (this.posY >= viewPosY + 32) return false;
+    if (this.posZ >= viewPosZ + 8) return false;
     
     return true;
 };

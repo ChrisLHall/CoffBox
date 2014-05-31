@@ -1,16 +1,16 @@
 game = {};
 
-game.update = function() {};
+game.update = function() {
+    game.vox.updateColors();
+    game.currentWorld.update();
+};
 // TODO REMOVE
 counter = 0;
 
 game.draw = function() {
     counter++;
-
-    //game.screen.pixel(Math.floor(Math.random() * 31.99), Math.floor(Math.random() * 31.99), [0, 255, 0]);
-    //game.vox.set(Math.floor(Math.random() * 31.99), Math.floor(Math.random() * 31.99),
-    //    Math.floor(Math.random() * 7.99), 3);
     game.vox.clear(0);
+    /* // Keeping this for history's sake of course.
     for (var row = 0; row < 32; row++) {
         for (var col = 0; col < 32; col++) {
             var dist = Math.sqrt((row - 16)*(row - 16) + (col - 16)*(col - 16));
@@ -18,9 +18,9 @@ game.draw = function() {
             game.vox.set(col, row, layer, 4);
         }
     }
-    for (var i = 0; i < game.doop.length; i++) {
-        game.doop[i].drawInto(game.vox);
-    }
+    */
+
+    game.currentWorld.draw(game.vox);
 
     game.screen.clear([0, 0, 0]);
     game.vox.draw(game.screen);
@@ -33,9 +33,12 @@ game.start = function() {
         height: 32,
         canvasId: "gameScreen"
     });
+    game.input.start();
+    game.resources.loadAll();
     game.vox = new game.VoxBuffer();
+    game.currentWorld = game.resources.worlds["main"];
     // TODO REMOVE
-    var mdl = [[[0,0,0],[0,3,0],[0,0,0]],[[0,3,0],[3,3,3],[0,3,0]]];
+    var mdl = game.resources.models["plus"];
     game.doop = [];
     game.doop.push(new game.Model(mdl, 5, 5, 3));
     game.doop.push(new game.Model(mdl, 20, 7, 2));

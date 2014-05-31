@@ -1,6 +1,7 @@
 // VoxBuffer.js
 // VoxBuffer is a 32x32x8 
 game.VoxBuffer = function() {
+    this.colorCounter = 0;
     this.colorTable = {
         0: [0, 0, 0], // transparent
         1: [255, 255, 255], // white, avoid using this please
@@ -10,6 +11,8 @@ game.VoxBuffer = function() {
         5: [0, 255, 255], // cyan
         6: [255, 0, 255], // purple
         7: [255, 255, 0], // yellow
+        100: [220, 220, 220], // changing shades of gray
+        101: [0, 255, 255], // changes from cyan to green
     };
     this.voxels = [];
     for (var row = 0; row < 32; row++) {
@@ -20,6 +23,26 @@ game.VoxBuffer = function() {
         }
         this.voxels.push(rowBuf);
     }
+};
+
+/** Updates changing gradient colors. */
+game.VoxBuffer.prototype.updateColors = function() {
+    this.colorCounter++;
+    var grayWave = 0.5 + 0.5 * Math.sin(this.colorCounter / 10);
+    var blueWave = 0.5 + 0.5 * Math.sin(this.colorCounter / 25);
+    this.colorTable[100] = this.lerpColors([230, 230, 230], [150, 150, 150],
+        grayWave);
+    this.colorTable[101] = this.lerpColors([0, 220, 220], [0, 255, 0],
+        blueWave);
+};
+
+/** Returns the linear interpolation between COLOR1 and COLOR2 by AMOUNT. */
+game.VoxBuffer.prototype.lerpColors = function(color1, color2, amount) {
+    return [
+        Math.floor(color2[0] * amount + color1[0] * (1 - amount)),
+        Math.floor(color2[1] * amount + color1[1] * (1 - amount)),
+        Math.floor(color2[2] * amount + color1[2] * (1 - amount)),
+    ];
 };
 
 game.VoxBuffer.prototype.clear = function(colorInd) {
@@ -34,11 +57,11 @@ game.VoxBuffer.prototype.clear = function(colorInd) {
 
 game.VoxBuffer.prototype.set = function(x, y, z, colorInd) {
     this.voxels[y][x][z] = colorInd;
-}
+};
 
 game.VoxBuffer.prototype.get = function(x, y, z, colorInd) {
     return this.voxels[y][x][z];
-}
+};
 
 game.VoxBuffer.prototype.draw = function(framebuffer) {
     for (var row = 0; row < 32; row++) {
