@@ -235,8 +235,8 @@ game.rawdata.RAW_MODEL_DATA = [
     {
         name: "blueplat",
         layers: [
-            [[21,21],
-             [21,21]]
+            [[14,14],
+             [14,14]]
         ]
     },
     {
@@ -285,12 +285,85 @@ game.rawdata.RAW_MODEL_DATA = [
         ]
     },
     {
+        name: "bigisland",
+        layers: [
+            [[ 0, 0, 0, 0, 0, 0, 0, 0],
+             [ 0, 0, 0,20,20,20, 0, 0],
+             [20,20, 0,20,20,20,20, 0],
+             [ 0,20, 0, 0, 0, 0,20, 0],
+             [ 0, 0, 0, 0,20,20,20, 0],
+             [ 0, 0, 0, 0, 0,20, 0, 0],
+             [ 0, 0, 0, 0, 0, 0, 0, 0],],
+            [[ 0, 0, 0,21,21,21, 0, 0],
+             [ 0,21,21,21,21,21,21, 0],
+             [21,21,21,21,21,21,21, 0],
+             [21,21,21,21,21,21,21,21],
+             [ 0, 0,21,21,21,21,21,21],
+             [ 0, 0, 0,21,21,21,21, 0],
+             [ 0, 0, 0, 0,21,21, 0, 0],],
+            [[ 0, 0, 0, 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0,21, 0, 0, 0],
+             [ 0, 0, 0,21,21,21, 0, 0],
+             [ 0,21,21,21,21,21, 0, 0],
+             [ 0, 0,21,21,21,21, 0, 0],
+             [ 0, 0, 0, 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0, 0, 0, 0, 0],],
+        ]
+    },
+    {
+        name: "smallisland",
+        layers: [
+            [[ 0,20,20,20,20, 0],
+             [20,20,20,20,20,20],
+             [20,20,20,20,20,20],
+             [ 0,20,20,20,20, 0],],
+            [[ 0,21,21,21,21, 0],
+             [21,21,21,21,21,21],
+             [21,21,21,21,21,21],
+             [ 0,21,21,21,21, 0],],
+            [[ 0, 0, 0, 0, 0, 0],
+             [ 0,21,21,21,21, 0],
+             [ 0,21,21,21,21,21],
+             [ 0, 0, 0, 0, 0, 0],],
+        ]
+    },
+    {
+        name: "tree",
+        layers: [
+            [[ 0, 0, 0, 0, 0],
+             [ 0,23,23,23, 0],
+             [ 0,23,23,23, 0],
+             [ 0,23,23,23, 0],
+             [ 0, 0, 0, 0, 0],],
+            [[ 0,23,23,23, 0],
+             [23,23,23,23,23],
+             [23,23,23,23,23],
+             [23,23,23,23,23],
+             [ 0,23,23,23, 0],],
+            [[ 0,23,23,23, 0],
+             [23,23,23,23,23],
+             [23,23,14,23,23],
+             [23,23,23,23,23],
+             [ 0,23,23,23, 0],],
+            [[ 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0, 0],
+             [ 0, 0,14, 0, 0],
+             [ 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0, 0],],
+            [[ 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0, 0],
+             [ 0, 0,14, 0, 0],
+             [ 0, 0, 0, 0, 0],
+             [ 0, 0, 0, 0, 0],]
+        ]
+    },
+    {
         name: "roomstairs",
         layers: [
             [[ 0, 0, 0,14]],
-            [[ 0, 0,14, 0]],
-            [[ 0,14, 0, 0]],
-            [[14, 0, 0, 0]],
+            [[ 0, 0,14,14]],
+            [[ 0,14,14, 0]],
+            [[14,14, 0, 0]],
         ]
     },
 ];
@@ -304,7 +377,6 @@ game.rawdata.RAW_WORLD_DATA = [
         bottomZ: 15,
         modelInstances: [
             // Main hallway
-            { name: "smallwallUD", x: -3, y: -2, z: 0},
             { name: "hallwayLR", x: -2, y: -2, z: 0},
             { name: "hallwayLR", x: 3, y: -2, z: 0},
             { name: "hallwayLR", x: 8, y: -2, z: 0},
@@ -370,6 +442,17 @@ game.rawdata.RAW_WORLD_DATA = [
             { name: "roomwalls", x: 45, y: -36, z: -25},
             { name: "roomfloorhole", x: 45, y: -36, z: -26},
             { name: "roomstairs", x: 46, y: -32, z: -26},
+            { name: "roomfloor", x: 51, y: -36, z: -26},
+            { name: "roomfloor", x: 57, y: -36, z: -26},
+            // Far left hallway
+            { name: "loopLR", x: -3, y: -2, z: -1},
+            { name: "loopLR", x: -4, y: -2, z: -2},
+            { name: "loopLR", x: -5, y: -2, z: -3},
+            { name: "loopLR", x: -6, y: -2, z: -4},
+            { name: "loopLR", x: -7, y: -2, z: -5},
+            { name: "loopLR", x: -8, y: -2, z: -6},
+            { name: "hallwayLR", x: -13, y: -2, z: -7},
+            { name: "smallwallUD", x: -14, y: -2, z: -7},
             // Secret stairwell
             { name: "blueplat", x: 1, y: 3, z: 2},
             { name: "blueplat", x: -1, y: 3, z: 3},
@@ -403,6 +486,18 @@ game.rawdata.RAW_WORLD_DATA = [
             { type: "bean", x: 8, y: 1, z: 10, args: {
                 name: "Sven",
                 model: "largebean"
+            } },
+            { type: "bean", x: 58, y: -35, z: -28, args: {
+                name: "Bigass Coffee Bean aka Jude",
+                model: "giantbean"
+            } },
+            { type: "bean", x: 35, y: -52, z: -7, args: {
+                name: "Cecilia",
+                model: "largebean"
+            } },
+            { type: "bean", x: 35, y: -52, z: -11, args: {
+                name: "Stacy",
+                model: "largebean"
             } }
         ]
     },
@@ -429,14 +524,29 @@ game.rawdata.RAW_WORLD_DATA = [
             { type: "portal", x: 35, y: 25, z: -2, args: {
                 model: "largeportal",
                 destWorld: "main",
-                destX: 31,
+                destX: 30,
+                destY: 0,
+                destZ: 7
+            } },
+            { type: "portal", x: 21, y: 16, z: 7, args: {
+                model: "largeportal",
+                destWorld: "main",
+                destX: 30,
                 destY: 0,
                 destZ: 7
             } },
             { type: "bean", x: 0, y: 15, z: 10, args: {
                 name: "Steven",
                 model: "giantbean"
-            } }
+            } },
+            { type: "bean", x: 21, y: 8, z: 1, args: {
+                name: "Poindexter",
+                model: "smallbean"
+            } },
+            { type: "bean", x: 26, y: 26, z: 0, args: {
+                name: "Arnold Schwarzenegger",
+                model: "largebean"
+            } },
         ]
     },
 ];
