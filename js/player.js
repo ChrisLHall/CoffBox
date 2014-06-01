@@ -44,6 +44,7 @@ game.Player.prototype.update = function() {
         this.arrowCounter = 3;
         if (game.input.actionKeyDown) {
             if (game.currentWorld.isSolid(this.x, this.y, this.z + 1)) {
+                game.resources.sounds["jump"].play();
                 this.vspeed = -1;
                 this.noGravCounter = 5;
             }
@@ -75,6 +76,7 @@ game.Player.prototype.update = function() {
             this.x = game.currentWorld.playerStartX;
             this.y = game.currentWorld.playerStartY;
             this.z = game.currentWorld.playerStartZ;
+            game.resources.sounds["die"].play();
     }
 
 

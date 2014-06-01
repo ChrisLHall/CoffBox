@@ -39,6 +39,7 @@ game.HUD.prototype.update = function() {
             this.nextPgKey = true;
             if (this.tutorialActive) {
                 this.tutorialPage++;
+                game.resources.sounds["jump"].play();
             }
         }
     } else {
@@ -82,6 +83,8 @@ game.HUD.prototype.update = function() {
         if (points == beanKeys.length) {
             this.playerWin = true;
             game.paused = true;
+            game.resources.sounds["win"].play();
+            game.resources.sounds["ambience"].stop();
         }
     }
     this.waveCounter++;

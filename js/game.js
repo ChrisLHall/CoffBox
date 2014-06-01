@@ -53,6 +53,7 @@ game.start = function() {
     game.currentWorld = game.resources.worlds["main"];
     game.currentWorld.regenerateEntities();
 
+    game.resources.sounds["ambience"].play();
     setInterval(game.loop, 16);
 };
 

@@ -124,3 +124,11 @@ game.rawdata.RAW_WORLD_DATA = [
         ]
     },
 ];
+
+game.rawdata.RAW_SOUND_NAMES = [
+    {name: "ambience", loop: true},
+    {name: "coffeeget", loop: false},
+    {name: "die", loop: false},
+    {name: "jump", loop: false},
+    {name: "win", loop: false}
+];

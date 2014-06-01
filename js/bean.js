@@ -22,6 +22,7 @@ game.Bean.prototype.update = function() {
             && game.player.z >= this.z && game.player.z < this.z + this.model.depth) {
         game.state.beans[this.name] = true;
         this.visible = false;
+        game.resources.sounds["coffeeget"].play();
     }
 };
 
