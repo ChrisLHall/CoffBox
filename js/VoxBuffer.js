@@ -11,7 +11,27 @@ game.VoxBuffer = function() {
         5: [0, 255, 255], // cyan
         6: [255, 0, 255], // purple
         7: [255, 255, 0], // yellow
+
+        // OrangeBrown color pallete
         10: [40, 30, 0], // very dark coffee brown
+        11: [0xFF, 0x7C, 0x00], // burnt orange
+        12: [0xFF, 0xB0, 0x00], // orange
+        13: [0xFF, 0x18, 0x00], // blood orange (bitch, it's red)
+        14: [0xA6, 0x51, 0x00], // brown
+
+        // BlueGreen color palette
+        20: [0, 0xBF, 0x32], // grass green
+        21: [0x04, 0x81, 0x9E], // gloomy blue
+        22: [0x8E, 0xEB, 0x00], // lime green
+        23: [0x00, 0x7C, 0x21], // forest green
+
+        // RedPurple color palette
+        30: [0xCB, 0x00, 0x77], // purpley
+        31: [0xFD, 0x00, 0x06], // bright red
+        32: [0x6F, 0x0A, 0xAA], // night blue/purple
+        33: [0x84, 0x00, 0x4D], // deep purple
+
+        // Glowing (changing) color palette
         100: [220, 220, 220], // changing shades of gray
         101: [0, 255, 255], // changes from cyan to white
         102: [150, 120, 0], // coffee bean color
