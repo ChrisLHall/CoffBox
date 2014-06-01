@@ -330,31 +330,18 @@ game.rawdata.RAW_MODEL_DATA = [
     {
         name: "tree",
         layers: [
-            [[ 0, 0, 0, 0, 0],
-             [ 0,23,23,23, 0],
-             [ 0,23,23,23, 0],
-             [ 0,23,23,23, 0],
-             [ 0, 0, 0, 0, 0],],
-            [[ 0,23,23,23, 0],
-             [23,23,23,23,23],
-             [23,23,23,23,23],
-             [23,23,23,23,23],
-             [ 0,23,23,23, 0],],
-            [[ 0,23,23,23, 0],
-             [23,23,23,23,23],
-             [23,23,14,23,23],
-             [23,23,23,23,23],
-             [ 0,23,23,23, 0],],
-            [[ 0, 0, 0, 0, 0],
-             [ 0, 0, 0, 0, 0],
-             [ 0, 0,14, 0, 0],
-             [ 0, 0, 0, 0, 0],
-             [ 0, 0, 0, 0, 0],],
-            [[ 0, 0, 0, 0, 0],
-             [ 0, 0, 0, 0, 0],
-             [ 0, 0,14, 0, 0],
-             [ 0, 0, 0, 0, 0],
-             [ 0, 0, 0, 0, 0],]
+            [[ 0, 0, 0],
+             [ 0,23, 0],
+             [ 0, 0, 0]],
+            [[23,23,23],
+             [23,14,23],
+             [23,23,23]],
+            [[23,23,23],
+             [23,14,23],
+             [23,23,23]],
+            [[ 0, 0, 0],
+             [ 0,14, 0],
+             [ 0, 0, 0]],
         ]
     },
     {
@@ -479,6 +466,13 @@ game.rawdata.RAW_WORLD_DATA = [
                 destY: 16,
                 destZ: 3
             } },
+            { type: "portal", x: -12, y: 0, z: -7, args: {
+                model: "smallportal",
+                destWorld: "stupid trees",
+                destX: 5,
+                destY: 5,
+                destZ: -3
+            } },
             { type: "bean", x: 1, y: 0, z: 1, args: {
                 name: "Jeffrey",
                 model: "smallbean"
@@ -545,6 +539,51 @@ game.rawdata.RAW_WORLD_DATA = [
             } },
             { type: "bean", x: 26, y: 26, z: 0, args: {
                 name: "Arnold Schwarzenegger",
+                model: "largebean"
+            } },
+        ]
+    },
+    {
+        name: "stupid trees",
+        playerStartX: 5,
+        playerStartY: 5,
+        playerStartZ: -3,
+        bottomZ: 15,
+        modelInstances: [
+            { name: "bigisland", x: 0, y: 0, z: 0},
+            { name: "tree", x: -1, y: 1, z: -4},
+            { name: "smallisland", x: 4, y: 10, z: 5},
+            { name: "tree", x: 5, y: 9, z: 1},
+            { name: "blueplat", x: 6, y: 14, z: 6},
+            { name: "blueplat", x: 6, y: 16, z: 6},
+            { name: "smallisland", x: 4, y: 18, z: 5},
+            { name: "smallisland", x: 13, y: 2, z: 4},
+            { name: "blueplat", x: 11, y: 3, z: 5},
+            { name: "blueplat", x: 9, y: 3, z: 5},
+            { name: "blueplat", x: 7, y: 3, z: 5},
+            { name: "smallisland", x: 1, y: 2, z: 5},
+            { name: "blueplat", x: -1, y: 3, z: 5},
+            { name: "smallisland", x: -7, y: 2, z: 4},
+        ],
+        entities: [
+            { type: "player", x: 0, y: 0, z: 0, args: {} },
+            { type: "portal", x: 6, y: 19, z: 3, args: {
+                model: "largeportal",
+                destWorld: "main",
+                destX: -9,
+                destY: 0,
+                destZ: -7
+            } },
+            { type: "bean", x: 0, y: 3, z: 0, args: {
+                name: "Neo",
+                model: "smallbean"
+            } },
+            { type: "bean", x: 5, y: 10, z: 4, args: {
+                name: "Stevie Wonder",
+                model: "smallbean"
+            } },
+            { type: "bean", x: 4, y: 3, z: 4, args: {
+                name: "Clifford",
                 model: "largebean"
             } },
         ]
