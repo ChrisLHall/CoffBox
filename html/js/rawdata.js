@@ -474,10 +474,10 @@ game.rawdata.RAW_WORLD_DATA = [
             { type: "player", x: -1, y: 0, z: 1, args: {} },
             { type: "portal", x: 35, y: 0, z: 6, args: {
                 model: "smallportal",
-                destWorld: "jumpquest",
-                destX: 16,
-                destY: 16,
-                destZ: 3
+                destWorld: "trustfall",
+                destX: 1,
+                destY: 1,
+                destZ: -100
             } },
             { type: "bean", x: 1, y: 0, z: 1, args: {
                 name: "Jeffrey",
@@ -547,6 +547,87 @@ game.rawdata.RAW_WORLD_DATA = [
                 name: "Arnold Schwarzenegger",
                 model: "largebean"
             } },
+        ]
+    },
+    {
+        name: "trustfall",
+        playerStartX: 1,
+        playerStartY: 1,
+        playerStartZ: -100,
+        bottomZ: 15,
+        modelInstances: [
+            { name: "hallwayLR", x: 0, y: 0, z: -100},
+            { name: "smallwallUD", x: 4, y: 0, z: -100},
+            { name: "hallwayUD", x: -2, y: 0, z: 13},
+            { name: "hallwayUD", x: -2, y: -5, z: 13},
+            { name: "hallwayUD", x: -2, y: -10, z: 13},
+            { name: "roomstairs", x: -2, y: 5, z: -93},
+            { name: "roomstairs", x: -2, y: 5, z: -89},
+            { name: "roomstairs", x: -2, y: 5, z: -85},
+            { name: "roomstairs", x: -2, y: 5, z: -81},
+            { name: "roomstairs", x: -2, y: 5, z: -77},
+            { name: "roomstairs", x: -2, y: 5, z: -73},
+            { name: "roomstairs", x: -2, y: 5, z: -69}, //hehehehehehehe
+            { name: "roomstairs", x: -2, y: 5, z: -65},
+            { name: "roomstairs", x: -2, y: 5, z: -61},
+            { name: "roomstairs", x: -2, y: 5, z: -57},
+            { name: "roomstairs", x: -2, y: 5, z: -53},
+            { name: "roomstairs", x: -2, y: 5, z: -49},
+            { name: "roomstairs", x: -2, y: 5, z: -45},
+            { name: "roomstairs", x: -2, y: 5, z: -41},
+            { name: "roomstairs", x: -2, y: 5, z: -37},
+            { name: "roomstairs", x: -2, y: 5, z: -33},
+            { name: "roomstairs", x: -2, y: 5, z: -29},
+            { name: "roomstairs", x: -2, y: 5, z: -25},
+            { name: "roomstairs", x: -2, y: 5, z: -21},
+            { name: "roomstairs", x: -2, y: 5, z: -17},
+            { name: "roomstairs", x: -2, y: 5, z: -13},
+            { name: "roomstairs", x: -2, y: 5, z: -9},
+            { name: "roomstairs", x: -2, y: 5, z: -5},
+            { name: "roomstairs", x: -2, y: 5, z: -1},
+            { name: "roomstairs", x: -2, y: 5, z: 3},
+            { name: "roomstairs", x: -2, y: 5, z: 7},
+            { name: "roomstairs", x: -1, y: -7, z: 11},
+            { name: "roomstairs", x: 103, y: -7, z: -93},
+            { name: "roomstairs", x: 99, y: -7, z: -89},
+            { name: "roomstairs", x: 95, y: -7, z: -85},
+            { name: "roomstairs", x: 91, y: -7, z: -81},
+            { name: "roomstairs", x: 87, y: -7, z: -77},
+            { name: "roomstairs", x: 83, y: -7, z: -73},
+            { name: "roomstairs", x: 79, y: -7, z: -69}, //hehehehehehehe
+            { name: "roomstairs", x: 75, y: -7, z: -65},
+            { name: "roomstairs", x: 71, y: -7, z: -61},
+            { name: "roomstairs", x: 67, y: -7, z: -57},
+            { name: "roomstairs", x: 63, y: -7, z: -53},
+            { name: "roomstairs", x: 59, y: -7, z: -49},
+            { name: "roomstairs", x: 55, y: -7, z: -45},
+            { name: "roomstairs", x: 51, y: -7, z: -41},
+            { name: "roomstairs", x: 47, y: -7, z: -37},
+            { name: "roomstairs", x: 43, y: -7, z: -33},
+            { name: "roomstairs", x: 39, y: -7, z: -29},
+            { name: "roomstairs", x: 35, y: -7, z: -25},
+            { name: "roomstairs", x: 31, y: -7, z: -21},
+            { name: "roomstairs", x: 27, y: -7, z: -17},
+            { name: "roomstairs", x: 23, y: -7, z: -13},
+            { name: "roomstairs", x: 19, y: -7, z: -9},
+            { name: "roomstairs", x: 15, y: -7, z: -5},
+            { name: "roomstairs", x: 11, y: -7, z: -1},
+            { name: "roomstairs", x: 7, y: -7, z: 3},
+            { name: "roomstairs", x: 3, y: -7, z: 7},
+        ],
+        entities: [
+            { type: "player", x: 0, y: 0, z: 0, args: {} },
+            { type: "portal", x: 107, y: -7, z: -2, args: {
+                model: "smallportal",
+                destWorld: "main",
+                destX: 31,
+                destY: 0,
+                destZ: 7
+            } },
+            { type: "bean", x: 0, y: -7, z: 10, args: {
+                name: "Joe",
+                model: "largebean"
+            } }
         ]
     },
 ];
