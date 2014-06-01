@@ -56,7 +56,7 @@ game.VoxBuffer.prototype.updateColors = function() {
         grayWave);
 
     var blueWave = 0.5 + 0.5 * Math.sin(this.colorCounter / 20);
-    this.colorTable[101] = this.lerpColors([0, 220, 220], [255, 255, 255],
+    this.colorTable[101] = this.lerpColors([0, 200, 200], [230, 230, 255],
         blueWave);
 
     var coffeeWave = this.colorCounter % 45;
