@@ -13,9 +13,9 @@ game.Portal = function(x, y, z, args) {
 
 game.Portal.prototype.update = function() {
     if (game.player != null
-            && game.player.x >= this.x && game.player.x < this.x + 2
-            && game.player.y >= this.y && game.player.y < this.y + 2
-            && game.player.z >= this.z && game.player.z < this.z + 2) {
+            && game.player.x >= this.x && game.player.x < this.x + this.model.width
+            && game.player.y >= this.y && game.player.y < this.y + this.model.height
+            && game.player.z >= this.z && game.player.z < this.z + this.model.depth) {
         var targWorld = game.resources.worlds[this.destWorld];
         targWorld.playerStartX = this.destX;
         targWorld.playerStartY = this.destY;
